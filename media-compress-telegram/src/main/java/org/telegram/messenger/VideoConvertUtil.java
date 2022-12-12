@@ -256,22 +256,22 @@ public class VideoConvertUtil {
         float compressFactor;
         float minCompressFactor;
         int maxBitrate;
-        if (Math.min(height, width) >= 1080) {
+       if (Math.min(height, width) >= 1080) {
             maxBitrate = 6800_000;
-            compressFactor = 1f;
-            minCompressFactor = 1f;
+            compressFactor = .8f;
+            minCompressFactor = .9f;
         } else if (Math.min(height, width) >= 720) {
-            maxBitrate = 2600_000;
-            compressFactor = 1f;
-            minCompressFactor = 1f;
+            maxBitrate = 1400_000;
+            compressFactor = .7f;
+            minCompressFactor = 7f;
         } else if (Math.min(height, width) >= 480) {
             maxBitrate = 1000_000;
-            compressFactor = 0.75f;
-            minCompressFactor = 0.9f;
+            compressFactor = 0.5f;
+            minCompressFactor = 0.7f;
         } else {
             maxBitrate = 750_000;
-            compressFactor = 0.6f;
-            minCompressFactor = 0.7f;
+            compressFactor = 0.3f;
+            minCompressFactor = 0.5f;
         }
         int remeasuredBitrate = (int) (originalBitrate / (Math.min(originalHeight / (float) (height), originalWidth / (float) (width))));
         remeasuredBitrate *= compressFactor;
